@@ -11,8 +11,11 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as CertificationRouteImport } from './routes/certification'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as ExperienceRouteImport } from './routes/experience'
 import { Route as SkillsRouteImport } from './routes/skills'
+import { Route as WhyInvestmentBankingRouteImport } from './routes/why-investment-banking'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,6 +25,16 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificationRoute = CertificationRouteImport.update({
+  id: '/certification',
+  path: '/certification',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ExperienceRoute = ExperienceRouteImport.update({
@@ -34,39 +47,78 @@ const SkillsRoute = SkillsRouteImport.update({
   path: '/skills',
   getParentRoute: () => rootRouteImport,
 } as any)
+const WhyInvestmentBankingRoute = WhyInvestmentBankingRouteImport.update({
+  id: '/why-investment-banking',
+  path: '/why-investment-banking',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/certification': typeof CertificationRoute
+  '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/skills': typeof SkillsRoute
+  '/why-investment-banking': typeof WhyInvestmentBankingRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/certification': typeof CertificationRoute
+  '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/skills': typeof SkillsRoute
+  '/why-investment-banking': typeof WhyInvestmentBankingRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/certification': typeof CertificationRoute
+  '/contact': typeof ContactRoute
   '/experience': typeof ExperienceRoute
   '/skills': typeof SkillsRoute
+  '/why-investment-banking': typeof WhyInvestmentBankingRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/experience' | '/skills'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/certification'
+    | '/contact'
+    | '/experience'
+    | '/skills'
+    | '/why-investment-banking'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/experience' | '/skills'
-  id: '__root__' | '/' | '/about' | '/experience' | '/skills'
+  to:
+    | '/'
+    | '/about'
+    | '/certification'
+    | '/contact'
+    | '/experience'
+    | '/skills'
+    | '/why-investment-banking'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/certification'
+    | '/contact'
+    | '/experience'
+    | '/skills'
+    | '/why-investment-banking'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CertificationRoute: typeof CertificationRoute
+  ContactRoute: typeof ContactRoute
   ExperienceRoute: typeof ExperienceRoute
   SkillsRoute: typeof SkillsRoute
+  WhyInvestmentBankingRoute: typeof WhyInvestmentBankingRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -85,6 +137,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/certification': {
+      id: '/certification'
+      path: '/certification'
+      fullPath: '/certification'
+      preLoaderRoute: typeof CertificationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/experience': {
       id: '/experience'
       path: '/experience'
@@ -99,14 +165,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SkillsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/why-investment-banking': {
+      id: '/why-investment-banking'
+      path: '/why-investment-banking'
+      fullPath: '/why-investment-banking'
+      preLoaderRoute: typeof WhyInvestmentBankingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CertificationRoute: CertificationRoute,
+  ContactRoute: ContactRoute,
   ExperienceRoute: ExperienceRoute,
   SkillsRoute: SkillsRoute,
+  WhyInvestmentBankingRoute: WhyInvestmentBankingRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
