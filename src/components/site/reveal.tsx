@@ -18,19 +18,23 @@ export function Reveal({
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    let timer = 0;
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            const t = window.setTimeout(() => setShown(true), delay);
+            timer = window.setTimeout(() => setShown(true), delay);
             io.disconnect();
-            return () => window.clearTimeout(t);
           }
         }
       },
       { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
     io.observe(el);
+    return () => {
+      window.clearTimeout(timer);
+      io.disconnect();
+    };
     return () => io.disconnect();
   }, [delay]);
 
