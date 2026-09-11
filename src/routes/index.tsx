@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, FileText, UserRound, Landmark, Award, LineChart, Mail } from "lucide-react";
+import { ArrowRight, FileText, Landmark, Award, LineChart, Mail, MapPin, Briefcase } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
+import profileAsset from "@/assets/profile.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -44,17 +45,28 @@ const services = [
 function Index() {
   return (
     <main>
-      {/* Hero — full purple band like the reference */}
+      {/* Hero — modern mesh glass */}
       <section className="relative overflow-hidden bg-primary text-primary-foreground">
-        <div className="pointer-events-none absolute inset-0 opacity-40">
-          <div className="absolute -top-24 right-[-10%] h-96 w-96 rounded-full bg-gold/25 blur-3xl" />
-          <div className="absolute bottom-[-30%] left-[-10%] h-96 w-96 rounded-full bg-white/10 blur-3xl" />
-          <div className="grid-lines absolute inset-0 opacity-30" />
+        {/* Animated mesh orbs */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-60">
+          <div
+            className="absolute -top-32 -right-32 h-[32rem] w-[32rem] rounded-full bg-gold/20 blur-[100px]"
+            style={{ animation: "float-orb 18s ease-in-out infinite alternate" }}
+          />
+          <div
+            className="absolute -bottom-40 -left-32 h-[34rem] w-[34rem] rounded-full bg-white/8 blur-[110px]"
+            style={{ animation: "float-orb 22s ease-in-out infinite alternate-reverse" }}
+          />
+          <div
+            className="absolute top-1/2 left-1/3 h-72 w-72 rounded-full bg-primary-foreground/5 blur-[80px]"
+            style={{ animation: "float-orb 16s ease-in-out infinite alternate" }}
+          />
+          <div className="grid-lines absolute inset-0 opacity-[0.22]" />
         </div>
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pt-16 pb-20 sm:px-8 sm:pt-24 lg:grid-cols-[1.15fr_0.85fr] lg:pb-28">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pt-16 pb-20 sm:px-8 sm:pt-24 lg:grid-cols-[1.1fr_0.9fr] lg:pb-28">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide">
+            <span className="inline-flex w-fit items-center gap-2 rounded-full border border-white/25 bg-white/8 px-4 py-1.5 text-xs font-semibold tracking-wide backdrop-blur-sm">
               <span className="relative flex h-1.5 w-1.5">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-80" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold" />
@@ -62,7 +74,7 @@ function Index() {
               Open to Investment Banking Operations Opportunities
             </span>
 
-            <h1 className="mt-7 text-5xl leading-[1.08] font-extrabold sm:text-6xl lg:text-7xl">
+            <h1 className="mt-7 text-5xl leading-[1.05] font-extrabold sm:text-6xl lg:text-7xl">
               Hello, I'm
               <br />
               Sachin S
@@ -86,21 +98,63 @@ function Index() {
             </div>
           </Reveal>
 
-          <Reveal delay={140} className="lg:justify-self-end">
+          <Reveal delay={160} className="lg:justify-self-end">
             <div className="relative mx-auto w-full max-w-sm">
-              <div className="absolute -inset-4 rounded-[2.5rem] bg-gold/20 blur-xl" />
-              <div className="relative flex aspect-4/5 flex-col items-center justify-center rounded-[2rem] border border-white/25 bg-white/10 backdrop-blur-sm">
-                <span className="flex h-24 w-24 items-center justify-center rounded-full bg-gold text-primary">
-                  <UserRound className="h-10 w-10" />
-                </span>
-                <p className="mt-6 font-display text-2xl font-bold">Sachin S</p>
-                <p className="mt-1 px-8 text-center text-xs leading-relaxed text-primary-foreground/70">
-                  Professional profile photograph goes here — share the image and it will appear in
-                  this frame.
-                </p>
+              {/* Glow ring behind card */}
+              <div
+                className="absolute -inset-3 rounded-[2.25rem] bg-gradient-to-br from-gold/30 to-primary-foreground/10 blur-xl"
+                style={{ animation: "glow-pulse 5s ease-in-out infinite alternate" }}
+              />
+
+              {/* Floating stat chips */}
+              <div
+                className="absolute -top-4 -left-6 z-20 flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-lg backdrop-blur-md"
+                style={{ animation: "float-chip 6s ease-in-out infinite" }}
+              >
+                <Briefcase className="h-3.5 w-3.5 text-gold" />
+                Accenture O2C
               </div>
-              <div className="absolute -right-3 -bottom-3 rounded-2xl bg-gold px-4 py-2 text-xs font-bold text-primary shadow-lg">
-                CIBOP Certified
+              <div
+                className="absolute top-1/2 -right-8 z-20 flex items-center gap-2 rounded-2xl border border-white/20 bg-white/10 px-4 py-2.5 text-xs font-semibold text-primary-foreground shadow-lg backdrop-blur-md"
+                style={{ animation: "float-chip 7s ease-in-out infinite 1s" }}
+              >
+                <MapPin className="h-3.5 w-3.5 text-gold" />
+                Bangalore, India
+              </div>
+
+              {/* Photo card */}
+              <div className="relative overflow-hidden rounded-[2rem] border border-white/20 bg-white/10 shadow-2xl backdrop-blur-xl">
+                <div className="aspect-4/5 w-full">
+                  <img
+                    src={profileAsset.url}
+                    alt="Sachin S — Investment Banking Operations Professional"
+                    className="h-full w-full object-cover"
+                    loading="eager"
+                  />
+                </div>
+
+                {/* Bottom name strip */}
+                <div className="absolute inset-x-0 bottom-0 border-t border-white/15 bg-gradient-to-t from-black/60 to-transparent p-5">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-display text-lg font-bold">Sachin S</p>
+                      <p className="text-xs text-primary-foreground/80">CIBOP Certified</p>
+                    </div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/25 bg-white/10">
+                      <Award className="h-5 w-5 text-gold" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* CIBOP badge */}
+              <div
+                className="absolute -bottom-4 -right-4 z-20 rounded-full border-4 border-primary bg-gold px-4 py-3 text-center text-[10px] font-black leading-tight text-primary shadow-xl"
+                style={{ animation: "float-chip 5s ease-in-out infinite 0.5s" }}
+              >
+                CIBOP
+                <br />
+                CERT
               </div>
             </div>
           </Reveal>
