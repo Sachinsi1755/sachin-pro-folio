@@ -77,13 +77,18 @@ function ContactPage() {
               </span>
               <div>
                 <p className="text-xs tracking-wide text-muted-foreground uppercase">{d.label}</p>
-                <p
-                  className={
-                    d.pending ? "mt-1 text-sm text-muted-foreground italic" : "mt-1 text-sm"
-                  }
-                >
-                  {d.value}
-                </p>
+                {"href" in d && d.href ? (
+                  <a
+                    href={d.href}
+                    target={d.href.startsWith("http") ? "_blank" : undefined}
+                    rel={d.href.startsWith("http") ? "noreferrer" : undefined}
+                    className="mt-1 inline-block text-sm transition-colors hover:text-primary"
+                  >
+                    {d.value}
+                  </a>
+                ) : (
+                  <p className="mt-1 text-sm">{d.value}</p>
+                )}
               </div>
             </div>
           ))}
