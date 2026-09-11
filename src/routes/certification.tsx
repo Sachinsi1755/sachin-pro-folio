@@ -37,13 +37,13 @@ const education = [
   {
     icon: GraduationCap,
     title: "MBA",
-    org: "Jain University",
+    org: "Jain University · 2025 – 2027",
     note: "Postgraduate business education strengthening finance, strategy and analytical decision-making.",
   },
   {
     icon: BookOpen,
     title: "Bachelor of Business Administration (BBA)",
-    org: "Undergraduate degree",
+    org: "Undergraduate degree · 2021 – 2024",
     note: "Foundation in business, accounting and financial principles.",
   },
   {

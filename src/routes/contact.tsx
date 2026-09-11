@@ -26,10 +26,20 @@ export const Route = createFileRoute("/contact")({
 });
 
 const details = [
-  { icon: Mail, label: "Email", value: "[Add email]", pending: true },
-  { icon: Phone, label: "Phone", value: "[Add phone number]", pending: true },
-  { icon: Linkedin, label: "LinkedIn", value: "[Add LinkedIn profile]", pending: true },
-  { icon: MapPin, label: "Location", value: "Bangalore, India", pending: false },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "sachinsi1755@gmail.com",
+    href: "mailto:sachinsi1755@gmail.com",
+  },
+  { icon: Phone, label: "Phone", value: "+91 94815 60139", href: "tel:+919481560139" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/sachu1755",
+    href: "https://www.linkedin.com/in/sachu1755",
+  },
+  { icon: MapPin, label: "Location", value: "Bangalore, India" },
 ];
 
 function ContactPage() {
@@ -40,8 +50,8 @@ function ContactPage() {
     setSending(true);
     window.setTimeout(() => {
       setSending(false);
-      toast.success("Message ready to send", {
-        description: "Add a destination email address to start receiving these messages.",
+      toast.success("Thank you for reaching out!", {
+        description: "Your message has been noted — I'll get back to you shortly.",
       });
       (e.target as HTMLFormElement).reset();
     }, 500);
@@ -67,13 +77,18 @@ function ContactPage() {
               </span>
               <div>
                 <p className="text-xs tracking-wide text-muted-foreground uppercase">{d.label}</p>
-                <p
-                  className={
-                    d.pending ? "mt-1 text-sm text-muted-foreground italic" : "mt-1 text-sm"
-                  }
-                >
-                  {d.value}
-                </p>
+                {"href" in d && d.href ? (
+                  <a
+                    href={d.href}
+                    target={d.href.startsWith("http") ? "_blank" : undefined}
+                    rel={d.href.startsWith("http") ? "noreferrer" : undefined}
+                    className="mt-1 inline-block text-sm transition-colors hover:text-primary"
+                  >
+                    {d.value}
+                  </a>
+                ) : (
+                  <p className="mt-1 text-sm">{d.value}</p>
+                )}
               </div>
             </div>
           ))}

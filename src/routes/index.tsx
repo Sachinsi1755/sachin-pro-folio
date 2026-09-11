@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, FileText, UserRound, Landmark, Award, LineChart } from "lucide-react";
+import { ArrowRight, FileText, UserRound, Landmark, Award, LineChart, Mail } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
 
 export const Route = createFileRoute("/")({
@@ -18,123 +18,146 @@ export const Route = createFileRoute("/")({
           "CIBOP certified | Financial Operations | Capital Markets | Trade Lifecycle. Open to Investment Banking Operations opportunities.",
       },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Index,
 });
 
-const marks = [
-  { icon: Award, label: "CIBOP Certified", sub: "Imarticus Learning" },
-  { icon: Landmark, label: "Accenture", sub: "Order to Cash Operations" },
-  { icon: LineChart, label: "Capital Markets", sub: "Trade Lifecycle Focus" },
+const services = [
+  {
+    icon: Award,
+    title: "CIBOP Certified",
+    body: "Certified Investment Banking Operations Professional training from Imarticus Learning — capital markets, trade lifecycle and post-trade processes.",
+  },
+  {
+    icon: Landmark,
+    title: "Financial Operations",
+    body: "Hands-on Order-to-Cash operations at Accenture: billing reconciliation, discrepancy resolution and audit-ready records under SLA pressure.",
+  },
+  {
+    icon: LineChart,
+    title: "Capital Markets Focus",
+    body: "A deliberate career path into investment banking operations, supported by MBA studies and continuous professional development.",
+  },
 ];
 
 function Index() {
   return (
     <main>
-      <section className="relative overflow-hidden">
-        <div className="grid-lines pointer-events-none absolute inset-0 opacity-60" />
-        <div className="aurora-slow pointer-events-none absolute inset-0 opacity-70 blur-3xl" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-b from-transparent to-background" />
+      {/* Hero — full purple band like the reference */}
+      <section className="relative overflow-hidden bg-primary text-primary-foreground">
+        <div className="pointer-events-none absolute inset-0 opacity-40">
+          <div className="absolute -top-24 right-[-10%] h-96 w-96 rounded-full bg-gold/25 blur-3xl" />
+          <div className="absolute bottom-[-30%] left-[-10%] h-96 w-96 rounded-full bg-white/10 blur-3xl" />
+          <div className="grid-lines absolute inset-0 opacity-30" />
+        </div>
 
-        <div className="relative mx-auto grid max-w-6xl gap-14 px-5 pt-16 pb-24 sm:px-8 sm:pt-24 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:pb-32">
+        <div className="relative mx-auto grid max-w-6xl items-center gap-14 px-5 pt-16 pb-20 sm:px-8 sm:pt-24 lg:grid-cols-[1.15fr_0.85fr] lg:pb-28">
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 px-3.5 py-1.5 text-xs tracking-wide text-gold">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-wide">
               <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-70" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-80" />
                 <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gold" />
               </span>
               Open to Investment Banking Operations Opportunities
             </span>
 
-            <h1 className="mt-7 text-5xl leading-[1.05] sm:text-7xl">Sachin S</h1>
-            <p className="mt-4 text-xl text-foreground/90 sm:text-2xl">
+            <h1 className="mt-7 text-5xl leading-[1.08] font-extrabold sm:text-6xl lg:text-7xl">
+              Hello, I'm
+              <br />
+              Sachin S
+            </h1>
+            <p className="mt-4 text-xl font-semibold text-gold sm:text-2xl">
               Investment Banking Operations Professional
             </p>
-            <div className="rule-gold mt-6 h-px w-32" />
-            <p className="mt-6 text-sm tracking-wide text-gold/90">
-              CIBOP Certified · Financial Operations · Capital Markets · Trade Lifecycle
-            </p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Investment Banking Operations professional with CIBOP certification from Imarticus
-              Learning and hands-on experience in Order-to-Cash financial operations at Accenture.
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-primary-foreground/80">
+              CIBOP-certified professional with hands-on financial operations experience at
+              Accenture — building a career across capital markets, the trade lifecycle and
+              post-trade operations in Bangalore, India.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link
-                to="/experience"
-                className="inline-flex items-center gap-2 rounded-sm bg-gold px-6 py-3 text-sm font-medium text-background transition-opacity hover:opacity-90"
-              >
+              <Link to="/experience" className="btn-amber">
                 View My Experience <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link
-                to="/contact"
-                hash="resume"
-                className="inline-flex items-center gap-2 rounded-sm border border-border px-6 py-3 text-sm font-medium transition-colors hover:border-gold hover:text-gold"
-              >
-                <FileText className="h-4 w-4" /> Download Resume
+              <Link to="/contact" hash="resume" className="btn-outline-light">
+                <FileText className="h-4 w-4" /> Download CV
               </Link>
             </div>
           </Reveal>
 
           <Reveal delay={140} className="lg:justify-self-end">
             <div className="relative mx-auto w-full max-w-sm">
-              <div className="absolute -inset-3 rounded-lg border border-gold/25" />
-              <div className="relative flex aspect-4/5 flex-col items-center justify-center rounded-lg border border-border bg-card">
-                <span className="flex h-24 w-24 items-center justify-center rounded-full border border-gold/40 text-gold">
+              <div className="absolute -inset-4 rounded-[2.5rem] bg-gold/20 blur-xl" />
+              <div className="relative flex aspect-4/5 flex-col items-center justify-center rounded-[2rem] border border-white/25 bg-white/10 backdrop-blur-sm">
+                <span className="flex h-24 w-24 items-center justify-center rounded-full bg-gold text-primary">
                   <UserRound className="h-10 w-10" />
                 </span>
-                <p className="mt-6 font-display text-2xl">Sachin S</p>
-                <p className="mt-1 px-8 text-center text-xs leading-relaxed text-muted-foreground">
+                <p className="mt-6 font-display text-2xl font-bold">Sachin S</p>
+                <p className="mt-1 px-8 text-center text-xs leading-relaxed text-primary-foreground/70">
                   Professional profile photograph goes here — share the image and it will appear in
                   this frame.
                 </p>
+              </div>
+              <div className="absolute -right-3 -bottom-3 rounded-2xl bg-gold px-4 py-2 text-xs font-bold text-primary shadow-lg">
+                CIBOP Certified
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      <section className="border-y border-border">
-        <div className="mx-auto grid max-w-6xl gap-px bg-border sm:grid-cols-3">
-          {marks.map((m, i) => (
-            <Reveal key={m.label} delay={i * 90}>
-              <div className="flex h-full items-center gap-4 bg-background px-6 py-8 sm:px-8">
-                <m.icon className="h-5 w-5 shrink-0 text-gold" />
-                <div>
-                  <p className="text-sm">{m.label}</p>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{m.sub}</p>
-                </div>
+      {/* Services-style cards */}
+      <section className="mx-auto max-w-6xl px-5 py-20 sm:px-8 sm:py-24">
+        <Reveal className="mx-auto max-w-2xl text-center">
+          <p className="eyebrow">What I Bring</p>
+          <h2 className="mt-3 text-3xl font-extrabold sm:text-4xl">
+            Expertise! Let's check it out
+          </h2>
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            Financial operations experience, formal investment-banking training and an analytical,
+            controls-first mindset.
+          </p>
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {services.map((s, i) => (
+            <Reveal key={s.title} delay={i * 90}>
+              <div className="card-hover h-full rounded-3xl border border-border bg-card p-8 text-center">
+                <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-primary">
+                  <s.icon className="h-6 w-6" />
+                </span>
+                <h3 className="mt-5 text-lg font-bold">{s.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.body}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-5 py-24 sm:px-8">
-        <Reveal className="max-w-3xl">
-          <p className="eyebrow">Positioning</p>
-          <div className="rule-gold mt-3 h-px w-24" />
-          <h2 className="mt-5 text-3xl leading-snug sm:text-4xl">
-            Precision, controls and operational excellence — applied to capital markets.
-          </h2>
-          <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-            Practical financial-operations experience at Accenture, CIBOP certification from
-            Imarticus Learning, MBA education and strong analytical capability — directed towards
-            opportunities across Investment Banking and Capital Markets Operations.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 text-sm text-gold transition-colors hover:text-foreground"
-            >
-              About me <ArrowRight className="h-4 w-4" />
-            </Link>
-            <Link
-              to="/why-investment-banking"
-              className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-gold"
-            >
-              Why Investment Banking Operations <ArrowRight className="h-4 w-4" />
-            </Link>
+      {/* Purple CTA band */}
+      <section className="px-5 pb-20 sm:px-8 sm:pb-24">
+        <Reveal className="mx-auto max-w-6xl">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-primary px-6 py-14 text-center text-primary-foreground sm:px-12">
+            <div className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full bg-gold/25 blur-3xl" />
+            <div className="pointer-events-none absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+            <div className="relative">
+              <h2 className="text-3xl font-extrabold sm:text-4xl">
+                Got An Opportunity? Let's Talk
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-primary-foreground/80">
+                Open to Investment Banking Operations, Capital Markets Operations and
+                financial-services roles in Bangalore and beyond.
+              </p>
+              <div className="mt-8 flex flex-wrap justify-center gap-3">
+                <Link to="/contact" className="btn-amber">
+                  <Mail className="h-4 w-4" /> Contact Me
+                </Link>
+                <Link to="/why-investment-banking" className="btn-outline-light">
+                  Why IB Operations <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+            </div>
           </div>
         </Reveal>
       </section>
