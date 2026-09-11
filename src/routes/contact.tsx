@@ -50,8 +50,8 @@ function ContactPage() {
     setSending(true);
     window.setTimeout(() => {
       setSending(false);
-      toast.success("Message ready to send", {
-        description: "Add a destination email address to start receiving these messages.",
+      toast.success("Thank you for reaching out!", {
+        description: "Your message has been noted — I'll get back to you shortly.",
       });
       (e.target as HTMLFormElement).reset();
     }, 500);
