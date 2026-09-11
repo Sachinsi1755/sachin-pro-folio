@@ -33,7 +33,7 @@ const profile = [
 const highlights = [
   { icon: Award, text: "CIBOP certification from Imarticus Learning" },
   { icon: Briefcase, text: "Order-to-Cash operations experience at Accenture" },
-  { icon: GraduationCap, text: "MBA studies at Jain University, BBA background" },
+  { icon: GraduationCap, text: "MBA at Jain University (2025–2027), BBA (2021–2024)" },
   { icon: LineChart, text: "Focused interest in capital markets and trade lifecycle" },
 ];
 
