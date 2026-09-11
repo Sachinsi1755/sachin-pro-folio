@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, FileText, UserRound, Landmark, Award, LineChart, Mail } from "lucide-react";
+import { ArrowRight, FileText, Landmark, Award, LineChart, Mail, MapPin, Briefcase } from "lucide-react";
 import { Reveal } from "@/components/site/reveal";
+import profileAsset from "@/assets/profile.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
