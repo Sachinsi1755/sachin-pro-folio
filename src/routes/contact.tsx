@@ -26,10 +26,20 @@ export const Route = createFileRoute("/contact")({
 });
 
 const details = [
-  { icon: Mail, label: "Email", value: "[Add email]", pending: true },
-  { icon: Phone, label: "Phone", value: "[Add phone number]", pending: true },
-  { icon: Linkedin, label: "LinkedIn", value: "[Add LinkedIn profile]", pending: true },
-  { icon: MapPin, label: "Location", value: "Bangalore, India", pending: false },
+  {
+    icon: Mail,
+    label: "Email",
+    value: "sachinsi1755@gmail.com",
+    href: "mailto:sachinsi1755@gmail.com",
+  },
+  { icon: Phone, label: "Phone", value: "+91 94815 60139", href: "tel:+919481560139" },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/sachu1755",
+    href: "https://www.linkedin.com/in/sachu1755",
+  },
+  { icon: MapPin, label: "Location", value: "Bangalore, India" },
 ];
 
 function ContactPage() {
