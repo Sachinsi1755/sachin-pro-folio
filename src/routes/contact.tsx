@@ -1,10 +1,15 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, Phone, Linkedin, MapPin, FileText, Send, Download } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Page } from "@/components/site/page";
 import { Reveal, SectionHeading } from "@/components/site/reveal";
 import { toast } from "sonner";
 import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
+
+const EMAILJS_SERVICE_ID = "service_0wop2ka";
+const EMAILJS_TEMPLATE_ID = "template_glgvupn";
+const EMAILJS_PUBLIC_KEY = "-oRQ3ZGsjRjEK3nLX";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
