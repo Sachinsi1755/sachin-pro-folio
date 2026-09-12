@@ -40,13 +40,13 @@ export function SiteFooter() {
             >
               <Phone className="h-4 w-4" /> +91 94815 60139
             </a>
-            <Link
-              to="/contact"
-              hash="resume"
+            <a
+              href={resumeAsset.url}
+              download="Sachin_S_Resume_IB_Operations.pdf"
               className="inline-flex items-center gap-2 text-sm text-primary-foreground/80 transition-colors hover:text-gold"
             >
               <FileText className="h-4 w-4" /> Resume
-            </Link>
+            </a>
           </div>
         </div>
 

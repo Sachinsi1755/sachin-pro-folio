@@ -94,16 +94,23 @@ function ContactPage() {
             </div>
           ))}
 
-          <div id="resume" className="rounded-lg border border-dashed border-border p-5">
+          <a
+            id="resume"
+            href={resumeAsset.url}
+            download="Sachin_S_Resume_IB_Operations.pdf"
+            className="group flex items-center justify-between rounded-lg border border-border bg-card p-5 transition-all duration-300 hover:border-gold/50 hover:bg-gold/5"
+          >
             <div className="flex items-center gap-3">
-              <FileText className="h-4 w-4 text-gold" />
-              <p className="text-sm">Resume</p>
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-border text-gold transition-colors group-hover:border-gold/50">
+                <FileText className="h-4 w-4" />
+              </span>
+              <div>
+                <p className="text-sm font-medium">Download Resume</p>
+                <p className="text-xs text-muted-foreground">PDF · {(resumeAsset.size / 1024).toFixed(0)} KB</p>
+              </div>
             </div>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-              The resume download will be enabled once the PDF is provided. Until then, please use
-              the form to request a copy.
-            </p>
-          </div>
+            <Download className="h-4 w-4 text-gold transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </a>
         </Reveal>
 
         <Reveal delay={100}>
