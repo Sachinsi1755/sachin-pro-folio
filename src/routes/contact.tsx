@@ -51,16 +51,39 @@ const details = [
 function ContactPage() {
   const [sending, setSending] = useState(false);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const message = String(data.get("message") ?? "");
     setSending(true);
-    window.setTimeout(() => {
-      setSending(false);
-      toast.success("Thank you for reaching out!", {
-        description: "Your message has been noted — I'll get back to you shortly.",
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: name,
+          reply_to: email,
+          email,
+          name,
+          message,
+          title: `Portfolio message from ${name}`,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      toast.success("Message sent!", {
+        description: "Thanks for reaching out — I'll get back to you shortly.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 500);
+      form.reset();
+    } catch {
+      toast.error("Message could not be sent", {
+        description: "Please try again, or email me directly at sachinsi1755@gmail.com.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
