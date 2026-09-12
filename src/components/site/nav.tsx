@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X, FileText, Download } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
+import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
 
 const links = [
   { to: "/", label: "Home" },

@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Mail, Phone, FileText } from "lucide-react";
+import { Linkedin, Mail, Phone, FileText, Download } from "lucide-react";
+import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
 
 export function SiteFooter() {
   return (

@@ -1,9 +1,10 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Mail, Phone, Linkedin, MapPin, FileText, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, MapPin, FileText, Send, Download } from "lucide-react";
 import { Page } from "@/components/site/page";
 import { Reveal, SectionHeading } from "@/components/site/reveal";
 import { toast } from "sonner";
+import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
