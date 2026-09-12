@@ -1,10 +1,15 @@
 import { useState, type FormEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Mail, Phone, Linkedin, MapPin, FileText, Send, Download } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import { Page } from "@/components/site/page";
 import { Reveal, SectionHeading } from "@/components/site/reveal";
 import { toast } from "sonner";
 import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
+
+const EMAILJS_SERVICE_ID = "service_0wop2ka";
+const EMAILJS_TEMPLATE_ID = "template_glgvupn";
+const EMAILJS_PUBLIC_KEY = "-oRQ3ZGsjRjEK3nLX";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -46,16 +51,39 @@ const details = [
 function ContactPage() {
   const [sending, setSending] = useState(false);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+    const name = String(data.get("name") ?? "");
+    const email = String(data.get("email") ?? "");
+    const message = String(data.get("message") ?? "");
     setSending(true);
-    window.setTimeout(() => {
-      setSending(false);
-      toast.success("Thank you for reaching out!", {
-        description: "Your message has been noted — I'll get back to you shortly.",
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: name,
+          reply_to: email,
+          email,
+          name,
+          message,
+          title: `Portfolio message from ${name}`,
+        },
+        { publicKey: EMAILJS_PUBLIC_KEY },
+      );
+      toast.success("Message sent!", {
+        description: "Thanks for reaching out — I'll get back to you shortly.",
       });
-      (e.target as HTMLFormElement).reset();
-    }, 500);
+      form.reset();
+    } catch {
+      toast.error("Message could not be sent", {
+        description: "Please try again, or email me directly at sachinsi1755@gmail.com.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
