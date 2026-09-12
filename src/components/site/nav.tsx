@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, FileText } from "lucide-react";
+import { Menu, X, FileText, Download } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
+import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
 
 const links = [
   { to: "/", label: "Home" },
@@ -59,14 +60,14 @@ export function SiteNav() {
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
-          <Link
-            to="/contact"
-            hash="resume"
+          <a
+            href={resumeAsset.url}
+            download="Sachin_S_Resume_IB_Operations.pdf"
             className="btn-amber hidden !px-4 !py-2 !text-xs sm:inline-flex"
           >
-            <FileText className="h-3.5 w-3.5" />
+            <Download className="h-3.5 w-3.5" />
             Download CV
-          </Link>
+          </a>
           <button
             type="button"
             aria-label="Toggle menu"
