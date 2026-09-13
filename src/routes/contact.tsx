@@ -64,11 +64,16 @@ function ContactPage() {
         EMAILJS_SERVICE_ID,
         EMAILJS_TEMPLATE_ID,
         {
+          // Recipient: always the portfolio owner
+          to_email: OWNER_EMAIL,
+          to_name: "Sachin S",
+          email: OWNER_EMAIL,
+          // Sender details
           from_name: name,
+          from_email: email,
           reply_to: email,
-          email,
           name,
-          message,
+          message: `${message}\n\n---\nFrom: ${name} <${email}>`,
           title: `Portfolio message from ${name}`,
         },
         { publicKey: EMAILJS_PUBLIC_KEY },
