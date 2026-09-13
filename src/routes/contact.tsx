@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import { Page } from "@/components/site/page";
 import { Reveal, SectionHeading } from "@/components/site/reveal";
 import { toast } from "sonner";
-import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
+
 
 const EMAILJS_SERVICE_ID = "service_0wop2ka";
 const EMAILJS_TEMPLATE_ID = "template_glgvupn";
@@ -131,7 +131,7 @@ function ContactPage() {
 
           <a
             id="resume"
-            href={resumeAsset.url}
+            href={RESUME_URL}
             download="Sachin_S_Resume_IB_Operations.pdf"
             className="group flex items-center justify-between rounded-lg border border-border bg-card p-5 transition-all duration-300 hover:border-gold/50 hover:bg-gold/5"
           >
@@ -141,7 +141,7 @@ function ContactPage() {
               </span>
               <div>
                 <p className="text-sm font-medium">Download Resume</p>
-                <p className="text-xs text-muted-foreground">PDF · {(resumeAsset.size / 1024).toFixed(0)} KB</p>
+                <p className="text-xs text-muted-foreground">PDF · 290 KB</p>
               </div>
             </div>
             <Download className="h-4 w-4 text-gold transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

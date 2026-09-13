@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X, FileText, Download } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
-import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
+
 
 const links = [
   { to: "/", label: "Home" },
@@ -61,7 +61,7 @@ export function SiteNav() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            href={resumeAsset.url}
+            href="/Sachin_S_Resume_IB_Operations.pdf"
             download="Sachin_S_Resume_IB_Operations.pdf"
             className="btn-amber hidden !px-4 !py-2 !text-xs sm:inline-flex"
           >
