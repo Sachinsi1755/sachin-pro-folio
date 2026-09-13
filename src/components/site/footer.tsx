@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Mail, Phone, FileText, Download } from "lucide-react";
-import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
+
 
 export function SiteFooter() {
   return (
@@ -41,7 +41,7 @@ export function SiteFooter() {
               <Phone className="h-4 w-4" /> +91 94815 60139
             </a>
             <a
-              href={resumeAsset.url}
+              href="/Sachin_S_Resume_IB_Operations.pdf"
               download="Sachin_S_Resume_IB_Operations.pdf"
               className="inline-flex items-center gap-2 text-sm text-primary-foreground/80 transition-colors hover:text-gold"
             >
