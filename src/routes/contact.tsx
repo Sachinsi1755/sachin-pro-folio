@@ -10,6 +10,8 @@ import resumeAsset from "@/assets/Sachin_S_Resume_IB_Operations.pdf.asset.json";
 const EMAILJS_SERVICE_ID = "service_0wop2ka";
 const EMAILJS_TEMPLATE_ID = "template_glgvupn";
 const EMAILJS_PUBLIC_KEY = "-oRQ3ZGsjRjEK3nLX";
+const OWNER_EMAIL = "sachinsi1755@gmail.com";
+const RESUME_URL = "/Sachin_S_Resume_IB_Operations.pdf";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
